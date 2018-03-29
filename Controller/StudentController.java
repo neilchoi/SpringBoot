@@ -14,7 +14,7 @@ import java.util.Collection;
  */
 
 @RestController
-@RequestMapping("/Students")
+@RequestMapping("/students")
 public class StudentController {
 
     @Autowired
