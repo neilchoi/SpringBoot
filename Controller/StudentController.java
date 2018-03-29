@@ -11,6 +11,7 @@ import java.util.Collection;
 /**
  * Created by Neil on 3/25/2018.
  */
+// Handles HHTP methods
 
 @RestController
 @RequestMapping("/students")
