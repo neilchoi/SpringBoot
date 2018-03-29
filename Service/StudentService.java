@@ -20,4 +20,20 @@ public class StudentService {
     public Collection<Student> getAllStudents() {
         return studentDao.getAllStudents();
     }
+
+    public Student getStudentIdentity(int id) {
+        return this.studentDao.getStudentById(id);
+    }
+
+    public void removeStudentById(int id) {
+        this.studentDao.removeStudentById(id);
+    }
+
+    public void updateStudent(Student student) {
+        this.studentDao.updateStudent(student);
+    }
+
+    public void insertStudent(Student student) {
+        studentDao.insertStudentToDb(student);
+    }
 }

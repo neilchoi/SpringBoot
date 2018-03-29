@@ -3,9 +3,8 @@ package com.Neil.Controller;
 import com.Neil.Entity.Student;
 import com.Neil.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -23,5 +22,25 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Student> getAllStudents() {
         return studentService.getAllStudents();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Student getStudentById(@PathVariable("id") int id) {
+        return studentService.getStudentIdentity(id);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deleteStudentById(@PathVariable("id") int id) {
+        studentService.removeStudentById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateStudentById(@RequestBody Student student) {
+        studentService.updateStudent(student);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void insertStudentById(@RequestBody Student student) {
+        studentService.insertStudent(student);
     }
 }

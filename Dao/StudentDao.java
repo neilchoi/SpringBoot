@@ -16,6 +16,7 @@ public class StudentDao {
     private static Map<Integer, Student> students;
 
     static {
+        // creates JSONS in /students
         students = new HashMap<Integer, Student>() {
             {
                 put(1, new Student(1, "Said", "Computer Science"));
@@ -24,7 +25,29 @@ public class StudentDao {
             }
         };
     }
+
+    // returns list of students
     public Collection<Student> getAllStudents() {
         return this.students.values();
+    }
+
+    // returns student by id
+    public Student getStudentById(int id) {
+        return this.students.get(id);
+    }
+
+    public void removeStudentById(int id) {
+        this.students.remove(id);
+    }
+
+    public void updateStudent(Student student) {
+        Student s = students.get(student.getId());
+        s.setCourse(student.getCourse());
+        s.setName(student.getName());
+        students.put(student.getId(), student);
+    }
+
+    public void insertStudentToDb(Student student) {
+        this.students.put(student.getId(), student);
     }
 }
