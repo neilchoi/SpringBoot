@@ -21,18 +21,22 @@ public class StudentService {
         return studentDao.getAllStudents();
     }
 
+    // get a student from the list
     public Student getStudentIdentity(int id) {
         return this.studentDao.getStudentById(id);
     }
 
+    // remove a student from the list
     public void removeStudentById(int id) {
         this.studentDao.removeStudentById(id);
     }
 
+    // update a student in the list
     public void updateStudent(Student student) {
         this.studentDao.updateStudent(student);
     }
 
+    // insert new student
     public void insertStudent(Student student) {
         studentDao.insertStudentToDb(student);
     }
